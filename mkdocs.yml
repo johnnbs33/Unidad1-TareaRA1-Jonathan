@@ -15,6 +15,6 @@ nav:
   - Reflexiones: reflexiones.md
 
 # Directorios
-doc_dir: docs
+docs_dir: docs
 
 # Fin del fichero makdocs.yml
