@@ -1,0 +1,47 @@
+# -----------------------------------------------------------
+# Configuración del WorkFlow
+
+name: Deploy MkDocs Tarea 1
+
+on:
+  push:
+    branches:
+      - main 
+
+# Permisos
+
+permissions:
+  contents: write 
+  pages: write
+  id-token: write
+
+# Definición del trabajo
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    # Paso 1: Obtencion del código fuente
+    - name: Checkout Repo
+      uses: actions/checkout@v3
+
+    # Paso 2: Configuración de Python
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    # Paso 3: Instalación de dependencias
+    - name: Install dependencies
+      run: pip install mkdocs
+
+    # Paso 4: Construir y desplegar la documentación
+    - name: Deploy docs
+      run: mkdocs gh-deploy --force
+      env:
+
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+# -----------------------------------------------------------

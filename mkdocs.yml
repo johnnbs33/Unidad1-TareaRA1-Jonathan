@@ -1,0 +1,20 @@
+# mkdocs.yml
+
+# Inicializando fichero mkdocs.yml
+site_name: Tarea Unidad 1 - RA1
+site_description: 'Documentación de la Tarea Unidad 1 - RA1 sobre depuración, pruebas y sandbox de aplicaciones web con Docker.'
+site_author: 'Jonathan Barbero Sánchez'
+
+# Estructura de navegación
+nav:
+  - Home: index.md
+  - Elementos: elementos.md
+  - Ejecución y depuración: ejecucionDepuracion.md
+  - Pruebas: pruebas.md
+  - Sandbox: sandbox.md
+  - Reflexiones: reflexiones.md
+
+# Directorios
+doc_dir: docs
+
+# Fin del fichero makdocs.yml
