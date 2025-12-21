@@ -1,7 +1,7 @@
 # -----------------------------------------------------------
 # Configuración del WorkFlow
 
-name: Deploy MkDocs Tarea 1
+name: Deploy MkDocs Tarea 2
 
 on:
   push:
@@ -24,18 +24,18 @@ jobs:
     steps:
     
     # Paso 1: Obtencion del código fuente
-    - name: Checkout Repo
-      uses: actions/checkout@v3
+    - name: Clonar Repositorio
+      uses: actions/checkout@v4
 
     # Paso 2: Configuración de Python
-    - name: Set up Python
-      uses: actions/setup-python@v4
+    - name: Configurar Python
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
     # Paso 3: Instalación de dependencias
-    - name: Install dependencies
-      run: pip install mkdocs
+    - name: Instalar MkDocs y Tema Material y Puglins
+      run: pip install mkdocs mkdocs-material mkdocs-glightbox Pygments pymdown-extensions
 
     # Paso 4: Construir y desplegar la documentación
     - name: Deploy docs
