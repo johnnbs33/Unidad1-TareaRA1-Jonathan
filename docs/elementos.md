@@ -9,10 +9,9 @@
 
 ## Introducción.
 
-Analizaremos el código de la aplicación lavadero, el cual se compone de dos ficheros:
+Analizaremos el código de la aplicación lavadero, la cual se compone de un fichero:
 
 - `lavadero.py`
-- `main_app.py`
 
 ## Aplicación.
 
@@ -20,17 +19,17 @@ La aplicación modela el ciclo de vida completo del proceso de limpieza de un ve
 
 ## Comentarios en el código.
 
-Empezaremos con el fichero `lavadero.py` que contiene la clase **Lavadero**.
+El fichero `lavadero.py` contiene la clase **Lavadero**, la cual deglosaremos en los siguientes apartados:
 
 1. [Clase](#clase)
-2. [Métodos de la clase](#metodos-de-la-clase)
-3. [Función terminar](#funcion-terminar)
-4. [Función hacerLavado](#funcion-hacerlavado)
-5. [La función cobrar](#funcion-cobrar)
-6. [La función avanzarFase](#funcion-avanzarfase)
-7. [La función imprimir_fase](#funcion-imprimir_fase)
-8. [La función imprimir_estado](#funcion-imprimir_estado)
-9. [La función ejecutar_y_obtener_fases](#funcion-ejecutar_y_obtener_fases)
+2. [Getters de la clase](#getter-de-la-clase)
+3. [Función terminar](#metodo-terminar)
+4. [Función hacerLavado](#metodo-hacerlavado)
+5. [La función cobrar](#metodo-cobrar)
+6. [La función avanzarFase](#metodo-avanzarfase)
+7. [La función imprimir_fase](#metodo-imprimir_fase)
+8. [La función imprimir_estado](#metodo-imprimir_estado)
+9. [La función ejecutar_y_obtener_fases](#metodo-ejecutar_y_obtener_fases)
 
 
 <a id="clase"></a>
@@ -68,8 +67,8 @@ class Lavadero:
         self.terminar()  # Asegura que el estado inicial sea consistente.
 ```
 
-<a id="metodos-de-la-clase"></a>
-### Métodos de la clase **Lavadero**, aquí se definirán dichas propedades o getters de la clase, que permitirán leer atributos privados de la clase como si fueran variables normales, protegiendo los datos originales.
+<a id="getter-de-la-clase"></a>
+### Aquí se definirán dichas propedades o getters de la clase, que permitirán leer atributos privados de la clase como si fueran variables normales, protegiendo los datos originales.
 
 ```Python
     @property
@@ -104,8 +103,8 @@ class Lavadero:
         return self.__encerado
 ```
 
-<a id="función-terminar"></a>
-### Función **terminar** cuyo objetivo principal es limpiar toda la configuración actual después de que un proceso de lavado ha concluido o ha sido cancelado.
+<a id="metodo-terminar"></a>
+### Método **terminar** cuyo objetivo principal es limpiar toda la configuración actual después de que un proceso de lavado ha concluido o ha sido cancelado.
 
 ```Python
     def terminar(self):
@@ -120,8 +119,8 @@ class Lavadero:
         self.__encerado = False
 ```
 
-<a id="funcion-hacerlavado"></a>
-### Función **hacerLavado**, es el punto de entrada para iniciar un servicio de lavado. Su trabajo es validar que el pedido sea correcto y configurar el lavadero para empezar a funcionar.
+<a id="metodo-hacerlavado"></a>
+### Método **hacerLavado**, es el punto de entrada para iniciar un servicio de lavado. Su trabajo es validar que el pedido sea correcto y configurar el lavadero para empezar a funcionar.
 
 ```Python
     def hacerLavado(self, prelavado_a_mano, secado_a_mano, encerado):
@@ -153,8 +152,8 @@ class Lavadero:
         self.__encerado = encerado
 ```
 
-<a id="funcion-cobrar"></a>
-### La función **cobrar**, es el módulo de facturación del lavadero. Su trabajo es calcular cuánto debe pagar el cliente y sumar ese dinero a la caja total del lavadero.
+<a id="metodo-cobrar"></a>
+### Método **cobrar**, es el módulo de facturación del lavadero. Su trabajo es calcular cuánto debe pagar el cliente y sumar ese dinero a la caja total del lavadero.
 
 ```Python
     def _cobrar(self):
@@ -181,8 +180,8 @@ class Lavadero:
         return coste_lavado
 ```
 
-<a id="funcion-avanzarfase"></a>
-### La función **avanzarFase**, ésta función es el cerebro lógico o el *controlador* del lavadero.
+<a id="metodo-avanzarfase"></a>
+### Método **avanzarFase**, es el cerebro lógico o el *controlador* del lavadero.
 
 ```Python
     def avanzarFase(self):
@@ -248,8 +247,8 @@ class Lavadero:
 
 ```
 
-<a id="funcion-imprimir_fase"></a>
-### La función **imprimir_fase**, es la encargada de la interfaz de usuario, permitiendo que cualquier persona sepa exactamente qué está pasando en el lavadero en cada momento.
+<a id="metodo-imprimir_fase"></a>
+### Método **imprimir_fase**, es la encargada de la interfaz de usuario, permitiendo que cualquier persona sepa exactamente qué está pasando en el lavadero en cada momento.
 
 ```Python
     def imprimir_fase(self):
@@ -273,8 +272,8 @@ class Lavadero:
         )
 ```
 
-<a id="funcion-imprimir_estado"></a>
-### La función **imprimir_estado**, es el generador de informes o el *panel de control* visual de la aplicación. Su trabajo es mostrarle al usuario (o al administrador del lavadero) una "foto" exacta de qué está pasando en ese preciso momento.
+<a id="metodo-imprimir_estado"></a>
+### Método **imprimir_estado**, es el generador de informes o el *panel de control* visual de la aplicación. Su trabajo es mostrarle al usuario (o al administrador del lavadero) una "foto" exacta de qué está pasando en ese preciso momento.
 
 ```Python
     def imprimir_estado(self):
@@ -293,8 +292,8 @@ class Lavadero:
         print("\n----------------------------------------")
 ```
 
-<a id="funcion-ejecutar_y_obtener_fases"></a>
-### La función, **ejecutar_y_obtener_fases**, es el simulador automático del sistema. Su trabajo es ejecutar un proceso de lavado completo de principio a fin y registrar todo lo que sucede en una lista.
+<a id="metodo-ejecutar_y_obtener_fases"></a>
+### Método **ejecutar_y_obtener_fases**, es el simulador automático del sistema. Su trabajo es ejecutar un proceso de lavado completo de principio a fin y registrar todo lo que sucede en una lista.
 
 ```Python
 def ejecutar_y_obtener_fases(self, prelavado, secado, encerado):
